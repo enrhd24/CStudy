@@ -83,13 +83,13 @@ _이탤릭체_ <br>
 ***********************
 
 [enrhd24](https://github.com/enrhd24)<br>
-[1. 네이버](www.naver.com)<br>
-[2. 구글](www.google.com)<br>
-[3. 야후](www.yahoo.kr)<br>
+[1. 네이버](https://www.naver.com/)<br>
+[2. 구글](https://www.google.com)<br>
+[3. 야후](https://www.yahoo.kr)<br>
 
 ************************
 
-![picture](logo.png)
+![picture](../markdown/image/logo.png)
 
 ************************
 
@@ -119,7 +119,7 @@ print(a+b)
 
 ************************
 지원 되는 언어와 마크다운 <br> <br>
-![언어](language.png)
+![언어](../markdown/image/language.png)
 
 ************************
 
