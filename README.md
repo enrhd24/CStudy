@@ -1,5 +1,4 @@
-# 공부순서
-1. git.io blog
-2. jekyll + Theme
-3. md + w git.io blog
-4. CS_논리회로 
+
+### markdown Test 및 Git 
+>1. index.md -> 주요 마크다운 명령어 학습
+>2. github.md -> 마크다운까지의 여정정리
