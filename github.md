@@ -1,5 +1,5 @@
 Git Init AND Clone <br>
-![git](../markdown/image/gitinit.png)
+![git](./image/gitinit.png)
 
 Using Git List
 1. [git](https://git-scm.com/) + Choose VisualCode

@@ -89,7 +89,7 @@ _이탤릭체_ <br>
 
 ************************
 
-![picture](../markdown/image/logo.png)
+![picture](./image/logo.png)
 
 ************************
 
@@ -119,13 +119,13 @@ print(a+b)
 
 ************************
 지원 되는 언어와 마크다운 <br> <br>
-![언어](../markdown/image/language.png)
+![언어](./image/language.png)
 
 ************************
 
 - [X] this is a complete item
 - [ ] this is an commplete item
-- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
+- [x] @mentions, #refs, [enrhd24](https://github.com/enrhd24), **formatting**, and <del>tags</del> supported
 
 ************************
 
