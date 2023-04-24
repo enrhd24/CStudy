@@ -18,3 +18,9 @@ Types of Variables in C
 3. Static Variable_정적 변수
 4. Automatic Variable_자동 변수
 5. External Variable_외부 변수
+
+Data Types in C
+1. Basic        -> int, char, float, double
+2. Derived      -> array, pointer, structure, union
+3. Enumeration  -> enum
+4. Void         -> void
