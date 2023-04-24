@@ -57,6 +57,33 @@ Tokens in C
 - Identifiers [변수, 함수, 배열, 구조 등 이름을 지정하는 데 사용]
 - Strings [문자열 끝에 null문자 '\0'이 있는 문자 배열]
 - Operators [기능을 수행하는 데 사용되는 특수 기호 - 연산자,피연산자]
-            [단항 연산자(증가, 감소, sizeof), 이진 연산자](산술, 관걔. 비트, etc..)
+            [단항 연산자(증가, 감소, sizeof), 이진 연산자(산술, 관걔. 비트, etc..)]
 - Constant [정수, 부동소수점, 8진수, 16진수, 문자, 문자열열]
 - Special Characters [대괄호, 괄호, 쉼표, 전처리기,별표,물결표, 마침표, etc..]
+
+C Boolean
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(){
+    // Syntax
+    bool x = false;
+    if(x == true){printf("The value if x is true\n");}
+    else{printf("The value of x is FALSE\n");}
+
+    //Boolean Array
+    bool b[2] = {true, false};
+    for(int i = 0; i < 2; i++){
+        printf("%d ",b[i]);
+    }
+    printf("\n");
+    
+    // Logical Operators
+    bool f = 0;
+    bool t = 1;
+    printf("The value if x&&y is %d\n",f&&t);
+    printf("The value if x||y is %d\n",f||t);
+    printf("The value if !x is %d\n",!f);
+    return 0;
+}
+
