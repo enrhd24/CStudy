@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdbool.h>
-typedef enum{false,true} b;
 
 int main(){
     // Syntax
@@ -13,11 +12,13 @@ int main(){
     for(int i = 0; i < 2; i++){
         printf("%d ",b[i]);
     }
-
-    //typedef
-    b one=false; // variable initialization 
-    if(one==true) // conditional statements  
-    {printf("The value of x is true");}  
-    else{printf("The value of x is false");}  
+    printf("\n");
+    
+    // Logical Operators
+    bool f = 0;
+    bool t = 1;
+    printf("The value if x&&y is %d\n",f&&t);
+    printf("The value if x||y is %d\n",f||t);
+    printf("The value if !x is %d\n",!f);
     return 0;
 }
