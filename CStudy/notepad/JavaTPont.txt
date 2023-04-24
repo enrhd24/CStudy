@@ -41,3 +41,11 @@ Constants in C
 2. 2 ways to define constant in C 
           [const keyword] -> const float PI = 3.14;
    [#define preprocessor] -> #define preprocessor
+
+What are literals
+-> 상수 변수에 할당된 상수 값 - 수정할 수 없는 고정 값을 나타낸다.
+-> 메모리를 포함하지만, 변수로 참조하지 않는다 - const int = 10; [정수 리터럴 인 상수 정수 식]
+1. Integer literal -> const int a = 23;
+2. Float literal -> const float b = 5.6;
+3. Character literal -> const char x = 'ak';
+4. String literal -> String1 = "javapoint' + "family"
