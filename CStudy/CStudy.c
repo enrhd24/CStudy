@@ -1,16 +1,23 @@
 #include <stdio.h>
-void function1();
-#define X 10; //global variable[전역 변수]
-extern int ex_x = 10  //external variable[외부 변수, 전역 변수]
+#include <stdbool.h>
+typedef enum{false,true} b;
 
 int main(){
-    static int static = 10; 
-    //static variable[정적 변수]
+    // Syntax
+    bool x = false;
+    if(x == true){printf("The value if x is true\n");}
+    else{printf("The value of x is FALSE\n");}
 
+    //Boolean Array
+    bool b[2] = {true, false};
+    for(int i = 0; i < 2; i++){
+        printf("%d ",b[i]);
+    }
+
+    //typedef
+    b one=false; // variable initialization 
+    if(one==true) // conditional statements  
+    {printf("The value of x is true");}  
+    else{printf("The value of x is false");}  
     return 0;
-}
-
-void function1(){
-    int x = 10; //local variable[지역변수]
-    auto int y = 20 // automaticc variable[자동변수]
 }
