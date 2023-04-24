@@ -1,8 +1,7 @@
 #include <stdio.h>
 void function1();
 #define X 10; //global variable[전역 변수]
-extern int ex_x = 10 
-//external variable[외부 변수, 전역 변수]
+extern int ex_x = 10  //external variable[외부 변수, 전역 변수]
 
 int main(){
     static int static = 10; 

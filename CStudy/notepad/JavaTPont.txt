@@ -24,3 +24,20 @@ Data Types in C
 2. Derived      -> array, pointer, structure, union
 3. Enumeration  -> enum
 4. Void         -> void
+
+Types of identifiers
+1. Internal identifier[내부 식별자] -> 지역 변수
+2. External idenrifier[외부 식별자] -> 함수이름, 전역변수
+
+Comments in C
+1. Single-Line Comments -> //
+2.  Multi-Line Comments -> /* */
+
+C Format Specifier[형식 지정자] -> 문자열 리터럴이나 나타내지 않는 일련의 문자
+Escape Sequence in Comments[이스케이프 시퀀스]
+
+Constants in C
+1. List of constants in C
+2. 2 ways to define constant in C 
+          [const keyword] -> const float PI = 3.14;
+   [#define preprocessor] -> #define preprocessor
