@@ -3,11 +3,14 @@
 #include <conio.h>
 #include <Windows.h>
 
+#define one 24
+#define two 12
+
 
 void intro();
 void move_arrow_key(char chr, int *x, int *y, int x_b, int y_b);
 void gotoxy(int x, int y);
-void draw_check01(int c, int r);
+void draw_check01(int height, int width);
 void game_control(void);
 void display_stone(int matrix[][20][20]);
 int game_end(int matrix[][20][20]);
@@ -32,7 +35,7 @@ void intro()
  
 void gotoxy(int x, int y)
 {
-        COORD Pos = { x , y };
+        COORD Pos = { x-1 , y-1 };
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
 
@@ -66,31 +69,46 @@ void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b)
         }
 }
 
-void draw_check01(int c, int r)
+void draw_check01(int height, int width)
 {
-        int i, j;
-        unsigned char a = 0xa6;
-        unsigned char b[12];
-        for (i = 1; i < 12; i++)
-               b[i] = 0xa0 + i;
-        printf("%c%c", a, b[3]);
-        for (i = 0; i < c - 1; i++)
-               printf("%c%c", a, b[8]);
-        printf("%c%c", a, b[4]);
-        printf("\n");
-        for (i = 0; i < r - 1; i++)
-        {
-               printf("%c%c", a, b[7]);
-               for (j = 0; j < c - 1; j++)
-                       printf("%c%c", a, b[11]);
-               printf("%c%c", a, b[9]);
-               printf("\n");
-        }
-        printf("%c%c", a, b[6]);
-        for (i = 0; i < c - 1; i++)
-               printf("%c%c", a, b[10]);
-        printf("%c%c", a, b[5]);
-        printf("\n");
+      int i , j;
+	unsigned char a = 0xa6;
+        unsigned char b[one];
+
+	for(i = 1; i < 12; i++){
+		b[i] = 0xa0 + i; 
+		//특수문자 넣기 위한 배열 초기화
+	}
+
+	printf("%c%c", a, b[3]);
+	for(i = 0; i < width; i++){
+		if(i%2 == 0)printf("%c%c",a,b[1]);
+		else{printf("%c%c",a,b[4]);}
+	}
+	//printf("%c%c",a,b[4]);
+	printf("\n"); 
+	// 첫번째 출 입력
+
+	for(i =0; i < height; i++)
+	{
+	printf("%c%c",a,b[7]);
+	for(j=0;j<width; j++)
+	{
+		if(j%2 == 0)printf("%c%c",a,b[1]);
+		else{printf("%c%c",a,b[9]);}
+	} 
+	//printf("%c%c",a,b[2]);
+	printf("\n");
+	} // 중간째 줄 모두 입력
+
+	printf("%c%c",a,b[6]);
+	for(i=0; i< width; i++){
+		if(i%2 == 0)printf("%c%c",a,b[1]);
+		else{printf("%c%c",a,b[5]);}
+	}
+	//printf("%c%c",a,b[5]);
+	printf("\n");
+	// 마지막 줄 입력
 }
 
 void game_control(void)
@@ -98,7 +116,7 @@ void game_control(void)
         int x = 1, y = 1, other = 0;
         int matrix[2][20][20] = { 0 };
         char key;
-        char *stone[2] = { "○", "●" };
+        char *stone[2] = { "0", "@" };
         do
         {
                gotoxy(1, 1);
@@ -106,11 +124,7 @@ void game_control(void)
                gotoxy(x, y);
                printf("%s", stone[other]);
                display_stone(matrix);
-               gotoxy(1, 20);
-               printf("방향키로 움직이고 ");
-               printf("스페이스 키를 누르시오.");
-               gotoxy(1, 21);
-               printf("돌을 놓았으면 상대방 차례입니다. ");
+
                key = getch();
                if (key == 27)
                        exit(0);
@@ -139,7 +153,7 @@ void game_control(void)
 void display_stone(int matrix[][20][20])
 {
         int i, x, y;
-        char *stone[2] = { "○", "●" };
+        char *stone[2] = { "0", "@" };
         for (i = 0; i < 2; i++)
                for (x = 1; x < 20; x++)
                        for (y = 1; y < 20; y++)

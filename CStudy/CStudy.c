@@ -29,7 +29,7 @@ void intro(){
 	getch();
 }
 void gotoxy(short x, short y) {
-	COORD pos = { x-1, y-1 };
+	COORD pos = { x-1, y-1};
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
 
@@ -79,8 +79,8 @@ void display_stone(int matrix[][one][two]){
 	int i, x, y;
 	char *stone[2] = {"A", "B"};
 	for(i =0; i < 2; i++){
-		for(x = 1; x < 20; x++){
-			for(y = 1; y < 12; y++){
+		for(x = 1; x < one; x++){
+			for(y = 1; y < one; y++){
 				if(matrix[i][x][y] == 1){
 					gotoxy(x*2 - 1, y);
 					printf("%s",stone[i]);
@@ -108,24 +108,66 @@ void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b){
         }
 }
 
-int gmae_end(int matrix[][one][two]){
-	
-}
+int game_end(int matrix[][one][two]){
+    int count = 0;
+    for (int i = 0; i < 2; i++){
+        for (int y = 1; y < two; y++){
+            count = 0; //새로운 줄일 때는 count=0으로 시작
+            for (int x = 1; x < one; x++){
+                if (matrix[i][x][y])count++;
+            	else count = 0;
+                if (count == 5)return (i + 1);}}}
+
+    for (int i = 0; i < 2; i++){
+        for (int x = 1; x < one; x++){
+            count = 0; //새로운 줄일 때는 count=0으로 시작
+            for (int y = 1; y < two; y++){
+                if (matrix[i][x][y])count++;
+                else count = 0;
+                if (count == 5) return (i + 1);}}}
+
+    for (int i = 0; i < 2; i++){
+        for (int x = 1; x < two; x++){
+            count = 0; //새로운 대각선일 때는 count=0으로 시작
+            for (int y = 1; y < two; y++){
+                int temp1 = x; //x와 y값을 저장
+                int temp2 = y;
+                for (int j = 0; j < 5; j++){
+                    if (matrix[i][temp1++][temp2++])count++;
+                    else count = 0;
+                }
+                if (count == 5)return (i + 1);}}}
+    for (int i = 0; i < 2; i++){
+        for (int x = 1; x < two; x++){
+            count = 0;
+            for (int y = 5; y < one; y++){
+                int temp1 = x;
+                int temp2 = y;
+                for (int j = 0; j < 5; j++){
+                    if (matrix[i][temp1++][temp2--])count++;
+                    else count = 0;
+                }
+                if (count == 5)return (i + 1);}}}
+        return 0; }
 
 void game_control(void){
 	int x = 1, y = 1, other = 0;
-	int matrix[2][26][12] = {0};
+	int matrix[2][one][two] = {0};
 	char key;
 	char *stone[2] = {"A","B"};
 	do{
 		 gotoxy(1,1); // 시작점 출발
-		 draw_check(12, 28); //바둑반 그리기
+		 draw_check(12, 24); //바둑반 그리기
 		 gotoxy(x,y); // 말 시작점 초기화
 		 printf("%s",stone[other]); // 말 올리기
-
+		display_stone(matrix);
 		 gotoxy(1,15); //메시지 입력 란
 		 printf("please using gosString\n");
-		printf("and push Keyboard");// 메시지 입력하기
+		 printf("and push Keyboard");// 메시지 입력하기
+		
+		
+		gotoxy(1, 17);
+    	printf("your Turn");
 		 key = getch();
 		 
 		if(key == 27){
@@ -138,7 +180,15 @@ void game_control(void){
     	else if (key >= 72){
 			move_arrow_key(key, &x, &y, 37, 19);
 			}
-               
-
+        if (game_end(matrix) == 1){
+            gotoxy(1, 24);
+            printf("blank Win\n");
+            break;
+			}
+        else if (game_end(matrix) == 2){
+            gotoxy(1, 24);
+            printf("White Win\n");
+            break; 
+			}
 	}while(1);
 }
