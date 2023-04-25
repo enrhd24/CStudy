@@ -3,13 +3,16 @@
 #include <conio.h> // 무슨헤더인지 모른다
 #include <Windows.h> //콘솔에 창띄우기
 
+#define one 24
+#define two 12
+
 
 void intro();
 void gotoxy(short x, short y);
 void game_control(void);
 void draw_check(int height, int width);
 
-void display_stone(int matrix[][20][12]);
+void display_stone(int matrix[][one][two]);
 void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b);
 
 int main(void)
@@ -33,42 +36,45 @@ void draw_check(int height, int width)
 {
 	int i , j;
 	unsigned char a = 0xa6;
-    unsigned char b[20];
+    unsigned char b[one];
 
-	for(i = 1; i < width; i++){
+	for(i = 1; i < 12; i++){
 		b[i] = 0xa0 + i; 
 		//특수문자 넣기 위한 배열 초기화
 	}
 
 	printf("%c%c", a, b[3]);
 	for(i = 0; i < width; i++){
-		printf("%c%c",a,b[8]);
+		if(i%2 == 0)printf("%c%c",a,b[1]);
+		else{printf("%c%c",a,b[4]);}
 	}
-	printf("%c%c",a,b[4]);
+	//printf("%c%c",a,b[4]);
 	printf("\n"); 
 	// 첫번째 출 입력
 
 	for(i =0; i < height; i++)
 	{
 	printf("%c%c",a,b[7]);
-	for(j=0;j<20; j++)
+	for(j=0;j<width; j++)
 	{
-	printf("%c%c",a,b[11]);
+		if(j%2 == 0)printf("%c%c",a,b[1]);
+		else{printf("%c%c",a,b[9]);}
 	} 
-	printf("%c%c",a,b[9]);
+	//printf("%c%c",a,b[2]);
 	printf("\n");
 	} // 중간째 줄 모두 입력
 
 	printf("%c%c",a,b[6]);
 	for(i=0; i< width; i++){
-		printf("%c%c",a,b[10]);
+		if(i%2 == 0)printf("%c%c",a,b[1]);
+		else{printf("%c%c",a,b[5]);}
 	}
-	printf("%c%c",a,b[5]);
+	//printf("%c%c",a,b[5]);
 	printf("\n");
 	// 마지막 줄 입력
 }
 
-void display_stone(int matrix[][20][12]){
+void display_stone(int matrix[][one][two]){
 	int i, x, y;
 	char *stone[2] = {"A", "B"};
 	for(i =0; i < 2; i++){
@@ -115,12 +121,12 @@ void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b)
 
 void game_control(void){
 	int x = 1, y = 1, other = 0;
-	int matrix[2][20][12] = {0};
+	int matrix[2][26][12] = {0};
 	char key;
 	char *stone[2] = {"A","B"};
 	do{
 		 gotoxy(1,1); // 시작점 출발
-		 draw_check(12, 20); //바둑반 그리기
+		 draw_check(12, 28); //바둑반 그리기
 		 gotoxy(x,y); // 말 시작점 초기화
 		 printf("%s",stone[other]); // 말 올리기
 
