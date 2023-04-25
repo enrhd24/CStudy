@@ -52,12 +52,31 @@ void draw_check(int c, int r)
         printf("%c%c", a, b[5]);
         printf("\n");
 }
+void display_stone(int matrix[][20][20])
+{
+        int i, x, y;
+        char *stone[2] = { "A", "B" };
+        for (i = 0; i < 2; i++)
+               for (x = 1; x < 20; x++)
+                       for (y = 1; y < 20; y++)
+                       {
+                              if (matrix[i][x][y] == 1)
+                              {
+                                      gotoxy(x * 2 - 1, y);
+                                      printf("%s", stone[i]);
+                              }
+                       }
+}
 
 void game_control(void){
 	int x = 1, y = 1, other = 0;
+	 int matrix[2][20][20] = { 0 };
+	 char *stone[2] = { "A", "B" };
 	char key;
 	do{
 		 draw_check(18, 18);
+		  printf("%s", stone[other]);
+               display_stone(matrix);
 		 key = getch();
 	}while(1);
 }
