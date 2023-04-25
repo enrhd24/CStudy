@@ -5,6 +5,7 @@
 void gotoxy(int x, int y);
 void game_control(void);
 void draw_check(int height, int width);
+void CursorView();
 void intro();
 
 #define UP 72
@@ -36,8 +37,16 @@ int main(){
     return 0;
 }
 
+void CursorView(){
+    CONSOLE_CURSOR_INFO cursorInfo = { 0, };
+	cursorInfo.dwSize = 1;
+	cursorInfo.bVisible = FALSE;
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+}
+
 void intro(){
     printf("Let's start Tertris");
+    CursorView();
     getch();
 }
 
@@ -70,7 +79,7 @@ void game_control(){
     char key;
     while(1){
     draw_check(20, 30);
-
+    CursorView();
     key = getch();
 
     }
