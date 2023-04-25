@@ -69,10 +69,13 @@ void draw_check(int height, int width)
 void game_control(void){
 	int x = 1, y = 1, other = 0;
 	char key;
+	char *stone[2] = {"A","B"};
 	do{
 		 gotoxy(1,1);
 		 draw_check(12, 20);
 		 gotoxy(x,y);
+		 printf("%s",stone[other]);
+		 gotoxy(1,20);
 		 key = getch();
 	}while(1);
 }
