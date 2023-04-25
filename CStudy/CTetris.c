@@ -7,11 +7,17 @@ void game_control(void);
 void draw_check(int height, int width);
 void intro();
 
+#define UP 72
+#define DOWN 80
+#define LEFT 75
+#define RIGHT 77
+#define SPACEBAR 32
+
 struct Point{
     int x, y;
 };
 
-struct Point Shape[][4][4] = {
+struct Point Shape[7][4][4] = {
      { {0,0,1,0,2,0,-1,0}, {0,0,0,1,0,-1,0,-2}, {0,0,1,0,2,0,-1,0}, {0,0,0,1,0,-1,0,-2} },
      { {0,0,1,0,0,1,1,1}, {0,0,1,0,0,1,1,1}, {0,0,1,0,0,1,1,1}, {0,0,1,0,0,1,1,1} },
      { {0,0,-1,0,0,-1,1,-1}, {0,0,0,1,-1,0,-1,-1}, {0,0,-1,0,0,-1,1,-1}, {0,0,0,1,-1,0,-1,-1} },
@@ -20,6 +26,8 @@ struct Point Shape[][4][4] = {
      { {0,0,1,0,-1,0,1,-1}, {0,0,0,1,0,-1,-1,-1}, {0,0,1,0,-1,0,-1,1}, {0,0,0,-1,0,1,1,1} },
      { {0,0,-1,0,1,0,0,1}, {0,0,0,-1,0,1,1,0}, {0,0,-1,0,1,0,0,-1}, {0,0,-1,0,0,-1,0,1} },
 };
+
+
 
 int main(){
     intro();
@@ -55,14 +63,18 @@ void draw_check(int height, int width){
         if(i == width-1)printf("%c%c",0xa6,0xa5);        
     }
 }
+    
 
 void game_control(){
     int x = 0, y = 0;
     char key;
     while(1){
     draw_check(20, 30);
+
     key = getch();
+
     }
     
 
 }
+
