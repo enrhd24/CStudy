@@ -9,6 +9,7 @@ void gotoxy(short x, short y);
 void game_control(void);
 void draw_check(int height, int width);
 
+
 int main(void)
 {
 	intro();
@@ -71,11 +72,15 @@ void game_control(void){
 	char key;
 	char *stone[2] = {"A","B"};
 	do{
-		 gotoxy(1,1);
-		 draw_check(12, 20);
-		 gotoxy(x,y);
-		 printf("%s",stone[other]);
-		 gotoxy(1,20);
+		 gotoxy(1,1); // 시작점 출발
+		 draw_check(12, 20); //바둑반 그리기
+		 gotoxy(x,y); // 말 시작점 초기화
+		 printf("%s",stone[other]); // 말 올리기
+
+		 gotoxy(1,15); //메시지 입력 란
+		 printf("please using gosString\n");
+		printf("and push Keyboard");// 메시지 입력하기
 		 key = getch();
+
 	}while(1);
 }
