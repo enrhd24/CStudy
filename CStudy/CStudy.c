@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <Windows.h>
+#include <stdio.h> // c언어 공부할 때 입출력 용도로 알고있다.
+#include <stdlib.h> // 이것의 용도로 모른다.
+#include <conio.h> // 무슨헤더인지 모른다
+#include <Windows.h> //콘솔에 창띄우기
 
 
 void intro();
@@ -9,6 +9,8 @@ void gotoxy(short x, short y);
 void game_control(void);
 void draw_check(int height, int width);
 
+void display_stone(int matrix[][20][12]);
+void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b);
 
 int main(void)
 {
@@ -66,9 +68,54 @@ void draw_check(int height, int width)
 	// 마지막 줄 입력
 }
 
+void display_stone(int matrix[][20][12]){
+	int i, x, y;
+	char *stone[2] = {"A", "B"};
+	for(i =0; i < 2; i++){
+		for(x = 1; x < 20; x++){
+			for(y = 1; y < 12; y++){
+				if(matrix[i][x][y] == 1){
+					gotoxy(x*2 - 1, y);
+					printf("%s",stone[i]);
+				}
+			}
+		}
+	}
+}
+
+void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b)
+{
+        switch (key)
+        {
+        case 72:
+               *y1 = *y1 - 1; //위쪽 방향의 화살표 키 입력
+               if (*y1 < 1)
+                       *y1 = 1;
+               break;
+        case 75:
+               *x1 = *x1 - 2; //왼쪽 방향의 화살표 키 입력
+               if (*x1 < 1)
+                       *x1 = 1;
+               break;
+        case 77:
+               *x1 = *x1 + 2; //오른쪽 방향의 화살표 키 입력
+               if (*x1 > x_b)
+                       *x1 = x_b;
+               break;
+        case 80:
+               *y1 = *y1 + 1; //아래쪽 방향의 화살표 키 입력
+               if (*y1 > y_b)
+                       *y1 = y_b;
+               break;
+        default:
+               return;
+        }
+
+}
 
 void game_control(void){
 	int x = 1, y = 1, other = 0;
+	int matrix[2][20][12] = {0};
 	char key;
 	char *stone[2] = {"A","B"};
 	do{
@@ -81,6 +128,16 @@ void game_control(void){
 		 printf("please using gosString\n");
 		printf("and push Keyboard");// 메시지 입력하기
 		 key = getch();
+		 
+		 if(key == 27){exit(0);}
+		else if (key == 32)
+               {
+                       matrix[other][(x + 1) / 2][y] = 1;
+                       other = 1 - other;
+               }
+               else if (key >= 72)
+                       move_arrow_key(key, &x, &y, 37, 19);
+               
 
 	}while(1);
 }
