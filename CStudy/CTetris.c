@@ -2,7 +2,22 @@
 #include <stdio.h>
 #include <conio.h>
 
+<<<<<<< HEAD
 /*
+=======
+void gotoxy(int x, int y);
+void game_control(void);
+void draw_check(int height, int width);
+void CursorView();
+void intro();
+
+#define UP 72
+#define DOWN 80
+#define LEFT 75
+#define RIGHT 77
+#define SPACEBAR 32
+
+>>>>>>> 00d41e211739998ed8123ee18b9a9146a0f54ee7
 struct Point{
     int x, y;
 };
@@ -134,8 +149,11 @@ void game_control(){
     while(1){
     draw_check(20, 30);
     CursorView();
+<<<<<<< HEAD
     SetCurrentCursorPos(0, 0);		// 0,0으로 커서를 이동시킨 후 블럭 출력
 	ShowBlock(Shape[0]);		// 블럭을 출력시키기 위한 함수
+=======
+>>>>>>> 00d41e211739998ed8123ee18b9a9146a0f54ee7
     key = getch();
 
     }
