@@ -14,6 +14,7 @@ void draw_check(int height, int width);
 
 void display_stone(int matrix[][one][two]);
 void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b);
+int game_end(int matrix[][one][two]);
 
 int main(void)
 {
@@ -89,34 +90,26 @@ void display_stone(int matrix[][one][two]){
 	}
 }
 
-void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b)
-{
-        switch (key)
-        {
-        case 72:
-               *y1 = *y1 - 1; //위쪽 방향의 화살표 키 입력
-               if (*y1 < 1)
-                       *y1 = 1;
-               break;
+void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b){
+	switch (key){
+    	case 72:
+            *y1 = *y1 - 1; //위쪽 방향의 화살표 키 입력
+            if (*y1 < 1)*y1 = 1;break;
         case 75:
-               *x1 = *x1 - 2; //왼쪽 방향의 화살표 키 입력
-               if (*x1 < 1)
-                       *x1 = 1;
-               break;
+            *x1 = *x1 - 2; //왼쪽 방향의 화살표 키 입력
+            if (*x1 < 1)*x1 = 1;break;
         case 77:
-               *x1 = *x1 + 2; //오른쪽 방향의 화살표 키 입력
-               if (*x1 > x_b)
-                       *x1 = x_b;
-               break;
+            *x1 = *x1 + 2; //오른쪽 방향의 화살표 키 입력
+            if (*x1 > x_b)*x1 = x_b;break;
         case 80:
-               *y1 = *y1 + 1; //아래쪽 방향의 화살표 키 입력
-               if (*y1 > y_b)
-                       *y1 = y_b;
-               break;
-        default:
-               return;
+        	*y1 = *y1 + 1; //아래쪽 방향의 화살표 키 입력
+            if (*y1 > y_b)*y1 = y_b;break;
+        default:return;
         }
+}
 
+int gmae_end(int matrix[][one][two]){
+	
 }
 
 void game_control(void){
@@ -135,14 +128,16 @@ void game_control(void){
 		printf("and push Keyboard");// 메시지 입력하기
 		 key = getch();
 		 
-		 if(key == 27){exit(0);}
-		else if (key == 32)
-               {
-                       matrix[other][(x + 1) / 2][y] = 1;
-                       other = 1 - other;
-               }
-               else if (key >= 72)
-                       move_arrow_key(key, &x, &y, 37, 19);
+		if(key == 27){
+			exit(0);
+			}
+		else if (key == 32){
+            matrix[other][(x + 1) / 2][y] = 1;
+            other = 1 - other;
+			}
+    	else if (key >= 72){
+			move_arrow_key(key, &x, &y, 37, 19);
+			}
                
 
 	}while(1);
