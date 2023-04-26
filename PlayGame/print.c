@@ -10,14 +10,17 @@
 */
 #define MAX 30
 
+struct ST_ENEMY {
+	int x = 0;
+	int y = 0;
+	bool enemy = false;
+};
 
 int main(void) {
 	int x = 14, y = 28;
 	int dox = 0, doy = 0; bool bullet = false;
 	
-	int arrx[MAX] = { 0 };
-	int arry[MAX] = { 0 };
-	bool enemy[MAX] = { false };
+	ST_ENEMY stEnemt[MAX];
 
 	srand(time(NULL)); //프로그램 난수발생 방지.
 	SetConsoleSize(30, 30); //프로그램 사이즈 선정.
@@ -34,11 +37,11 @@ int main(void) {
 		// 사용자의 공격 화살표 지정
 
 		for (int i = 0; i < MAX; i++) {
-			if (!enemy[i]) { arrx[i] = (rand() % 15)*2; arry[i] = 0; enemy[i] = true; break; }}
+			if (!stEnemt[i].enemy) { stEnemt[i].x = (rand() % 15) * 2; stEnemt[i].y = 0; stEnemt[i].enemy = true; break; } }
 		    // (rand()%15) *2 0~15의 라인을 2개 만들기 - 스위칭회로
 		for (int i = 0; i < MAX; i++) {
-			if(enemy[i]){GotoXY(arrx[i],arry[i]); printf("☆"); arry[i]++;
-			if (arry[i] > y) { enemy[i] = false; }}}
+			if(stEnemt[i].enemy){GotoXY(stEnemt[i].x, stEnemt[i].y); printf("☆"); stEnemt[i].y++;
+			if (stEnemt[i].y > y) { stEnemt[i].enemy= false; }}}
 		    // 해당 별을 출하는 처리문
 		// 사용자와 만나는 별 만나기 기능
 
