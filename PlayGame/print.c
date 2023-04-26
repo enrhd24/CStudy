@@ -34,10 +34,12 @@ int main(void) {
 		// 사용자의 공격 화살표 지정
 
 		for (int i = 0; i < MAX; i++) {
-			if (!enemy[i]) { arrx[i] = (rand() % 15*2); arry[i] = 0; enemy[i] = true; break; }}
+			if (!enemy[i]) { arrx[i] = (rand() % 15)*2; arry[i] = 0; enemy[i] = true; break; }}
+		    // (rand()%15) *2 0~15의 라인을 2개 만들기 - 스위칭회로
 		for (int i = 0; i < MAX; i++) {
 			if(enemy[i]){GotoXY(arrx[i],arry[i]); printf("☆"); arry[i]++;
 			if (arry[i] > y) { enemy[i] = false; }}}
+		    // 해당 별을 출하는 처리문
 		// 사용자와 만나는 별 만나기 기능
 
 		GotoXY(x, y); // 사용자 시작 문자
