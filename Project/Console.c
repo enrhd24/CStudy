@@ -7,6 +7,14 @@ void intro();
 void GotoXY(short x, short y);
 void game_control(void);
 void draw_check(int height, int width); // 높이, 가로
+void Setcursor(BOOL _bShow);
+void display_game(void);
+
+struct ST_OBJECT{
+    int x;
+    int y;
+    int Active;
+};
 
 int main(void) {
 	intro();
@@ -54,11 +62,35 @@ void draw_check(int width, int height){
 
 void game_control(void) {
 	int x = 40, y = 30;
+   
 	char key;
 
 	while (1) {
 		
         draw_check(x,y);
-		key = getch();
+        display_game();
+        Setcursor(0);
+		
+        key = getch();
+        
+        if(key == 27){exit(0);}
+
+        
+  
 	}
+}
+
+void display_game(void){
+     int tx = 20, ty = 28;
+    GotoXY(tx, ty);
+    printf("A");
+    //if (GetAsyncKeyState(VK_LEFT) & 0x8000) {tx -= 2; if (tx < 2)tx = 2;}
+    //if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {tx += 2; if (tx > 28)tx = 28;}
+}
+
+void Setcursor(BOOL _bShow){
+    CONSOLE_CURSOR_INFO curInfo;
+    GetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &curInfo);
+    curInfo.bVisible = _bShow;
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &curInfo);
 }
