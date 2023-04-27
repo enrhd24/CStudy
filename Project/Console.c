@@ -1,29 +1,67 @@
+// 초기화 : 게임에 필요한 데이터 초기화
+// 데이터 갱신 : 입력장치에 의한 데이터 갱신
+// 화면출력 : 실제 게임이미지 화면에 그리기
+// 해제 : 메모리 해제
+
 #include <stdio.h>
-#include <windows.h>
+#include <conio.h>
+#include <Windows.h>
 
+void Init();
 void GotoXY(short x, short y);
+int ReadyGame(int x, int y);
+void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b);
+void Clear(void);
 
-int main(void){
-    int pos1 = 0, pos2 = 0;
+#define MAGIC_KEY 224
+#define SPACE 32
 
-    while(1){
-        system("cls");
-        pos1++; pos2++;
+enum KEYBOARD{
+    UP = 72,
+    LEFT = 75,
+    RIGHT = 77,
+    DOWN = 80
+};
 
-        if(pos1 > 20) pos1 = 20;
-        if(pos2 > 20) pos2 = 20;
 
-        GotoXY(10+pos1,5);
-        printf("test1");
+int main(){
+  
+    Init(); // 초기화
+   int b_x = 20;
 
-        GotoXY(10+pos2,20);
-        printf("test2");
-        Sleep(70);
+    while(1){ 
+        Clear();
+        int x = 40; int y = 20;
+        
+        char key;
+        
+        
+        if(GetAsyncKeyState(VK_LEFT) & 0x8000) { b_x--; if (b_x < 0) b_x = 0;}
+		if(GetAsyncKeyState(VK_RIGHT) & 0x8000) { b_x++; if (b_x > 28) b_x = 28; }
+
+        
+        
+        GotoXY(b_x,y);
+        printf("A");
+        Sleep(50);
+        
     }
     return 0;
 }
 
+void Init(){system("mode con cols=56 lines=20 | title GAMETITLE");}
+
 void GotoXY(short x, short y) {
-	COORD pos = { x-1, y-1};
+	COORD pos = { x, y};
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
+
+int ReadyGame(int b_x, int y){
+   
+}
+
+
+void Clear(void){
+    system("cls");
+}
+
