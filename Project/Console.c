@@ -10,7 +10,7 @@
 void Init();
 void GotoXY(short x, short y);
 int ReadyGame(int x, int y);
-void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b);
+void Setcursor(BOOL Show);
 void Clear(void);
 
 #define MAGIC_KEY 224
@@ -33,18 +33,13 @@ int main(){
         Clear();
         int x = 40; int y = 20;
         
-        char key;
-        
-        
         if(GetAsyncKeyState(VK_LEFT) & 0x8000) { b_x--; if (b_x < 0) b_x = 0;}
-		if(GetAsyncKeyState(VK_RIGHT) & 0x8000) { b_x++; if (b_x > 28) b_x = 28; }
+		if(GetAsyncKeyState(VK_RIGHT) & 0x8000) { b_x++; if (b_x > 40) b_x = 40; }
 
-        
-        
         GotoXY(b_x,y);
         printf("A");
-        Sleep(50);
-        
+        Sleep(5); 
+        Setcursor(0); 
     }
     return 0;
 }
@@ -64,4 +59,12 @@ int ReadyGame(int b_x, int y){
 void Clear(void){
     system("cls");
 }
+
+void Setcursor(BOOL Show){
+    CONSOLE_CURSOR_INFO curInfo;
+    GetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &curInfo);
+    curInfo.bVisible = Show;
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &curInfo);
+}
+
 
