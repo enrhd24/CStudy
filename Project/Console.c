@@ -6,41 +6,41 @@
 #include <stdio.h>
 #include <conio.h>
 #include <Windows.h>
+#include <time.h>
 
 void Init();
 void GotoXY(short x, short y);
-int ReadyGame(int x, int y);
 void Setcursor(BOOL Show);
 void Clear(void);
-
-#define MAGIC_KEY 224
-#define SPACE 32
-
-enum KEYBOARD{
-    UP = 72,
-    LEFT = 75,
-    RIGHT = 77,
-    DOWN = 80
-};
-
 
 int main(){
   
     Init(); // 초기화
-   int b_x = 20;
+    srand(time(NULL));
+
+    int x = 40; int y = 20;
+    int b_x = 20;
+    int u_x = (rand()%20)*2, u_y = 0;
+    BOOL Active = 0;
 
     while(1){ 
         Clear();
-        int x = 40; int y = 20;
         
-        if(GetAsyncKeyState(VK_LEFT) & 0x8000) { b_x--; if (b_x < 0) b_x = 0;}
-		if(GetAsyncKeyState(VK_RIGHT) & 0x8000) { b_x++; if (b_x > 40) b_x = 40; }
+        
+        if(GetAsyncKeyState(VK_LEFT) & 0x8000){b_x--; if (b_x < 0) b_x = 0;}
+		if(GetAsyncKeyState(VK_RIGHT) & 0x8000){b_x++; if (b_x > 40) b_x = 40;}
+
+        if (!Active) { u_x = (rand() % 15) * 2; u_y = 0; Active = 1; }
+		if (Active) { GotoXY(u_x, u_y); printf("o"); u_y++; if (u_y > y) { Active = 0; }}
 
         GotoXY(b_x,y);
         printf("A");
         Sleep(5); 
         Setcursor(0); 
     }
+
+     
+    
     return 0;
 }
 
@@ -50,11 +50,6 @@ void GotoXY(short x, short y) {
 	COORD pos = { x, y};
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
-
-int ReadyGame(int b_x, int y){
-   
-}
-
 
 void Clear(void){
     system("cls");
