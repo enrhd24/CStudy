@@ -17,26 +17,31 @@ int main(){
   
     Init(); // 초기화
     srand(time(NULL));
+    int x = 52; int y = 22;
+    int b_x = 25;
+    int u_x[30] = {0,}, u_y[30] = {0,};
+    BOOL Active[30] = {0,};
 
-    int x = 40; int y = 20;
-    int b_x = 20;
-    int u_x = (rand()%20)*2, u_y = 0;
-    BOOL Active = 0;
+   
 
     while(1){ 
+        
         Clear();
         
-        
         if(GetAsyncKeyState(VK_LEFT) & 0x8000){b_x--; if (b_x < 0) b_x = 0;}
-		if(GetAsyncKeyState(VK_RIGHT) & 0x8000){b_x++; if (b_x > 40) b_x = 40;}
+		if(GetAsyncKeyState(VK_RIGHT) & 0x8000){b_x++; if (b_x > 50) b_x = 50;}
 
-        if (!Active) { u_x = (rand() % 15) * 2; u_y = 0; Active = 1; }
-		if (Active) { GotoXY(u_x, u_y); printf("o"); u_y++; if (u_y > y) { Active = 0; }}
+        for(int i = 0; i < 20; i++){
+        if (!Active[i]) { u_x[i] = (rand() % 25) * 2; u_y[i] = 0; Active[i] = 1; break;}
+		if (Active[i]) { GotoXY(u_x[i], u_y[i]); printf("o"); u_y[i]++; if (u_y[i] > y) { Active[i] = 0; }}
+        }
 
         GotoXY(b_x,y);
-        printf("A");
-        Sleep(5); 
+        printf("A"); 
+        Sleep(5);
         Setcursor(0); 
+
+        
     }
 
      
@@ -61,5 +66,4 @@ void Setcursor(BOOL Show){
     curInfo.bVisible = Show;
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &curInfo);
 }
-
 
