@@ -1,4 +1,4 @@
-
+https://badayak.com/entry/C%EC%96%B8%EC%96%B4-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%B0%B0%EC%97%B4
 /*
     C언어로 프로그래밍 하면,
     배열을 포인터로 처리하는 경우가 많다.
