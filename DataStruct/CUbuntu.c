@@ -1,21 +1,44 @@
 
 /*
-프로그램 소스를 분할하는 이유
-1. 프로그램의 구조화
-2. 빌드 시간 단축
-3. 여러 개발자에 의한 개발
-4. 유지보수 향상
+    C언어로 프로그래밍 하면,
+    배열을 포인터로 처리하는 경우가 많다.
+
+    오류 없는 프로그래밍을 하려면 
+    배열의 특성도 정확히 알아야 한다.
+
 */
 
-#include <stdio.h>
+// C언어 포인터 변수 타입별 차이 -> C언어는 문자 변수에 숫자를 넣어도 가능합니다.
+// char[byte], short[2byte], int[4byte], long[64bit-8byte]
 
-void function();
+// C언어는 변수 형에 따라 크기에 맞추어 포인터의 값이 계산되는 것은 C언어의 배려
+// warning떠도 컴파일이 된다면, 당연히 엉뚱한 결과를 내놓습니다.
+
+// C언어는 포인터의 변수 형에 따라 그 크기에 맞추어 걔산합니다.
+// char*+1 = +1 , short*+1 = +2 , int*+1 = +4 , long* 64bit of +1 = +8 
+// char *ptr , int *ptr;
+
+#include <stdio.h>
+struct Init{
+    char c_value;
+    int n_value;
+};
 
 int main(){
-    function();
-    function();
-}
+    struct Init init;
+    printf("%d %d \n", 
+    init.c_value = 254,        //0x100
+    init.n_value = 4294967294 //0x100000000
+    );
 
-void function(){
-    printf("hello from function No.1\n");
+    char ary1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char *ptr1  = ary1; 
+    int *ptr2 = ary1;
+    printf( "%c ", *(ptr1 +0)); printf( "%c ", *(ptr1 +1));
+    printf( "%c ", *(ptr1 +2)); printf( "%c\n", *(ptr1 +3));
+    printf( "%c ", *(ptr2 +0)); printf( "%c ", *(ptr2 +1));
+    printf( "%c ", *(ptr2 +2)); printf( "%c\n", *(ptr2 +3));
+
+   
+    return 0;
 }
