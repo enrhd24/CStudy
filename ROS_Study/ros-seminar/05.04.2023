@@ -1,0 +1,64 @@
+
+ROS(Robot Operation System)
+-> Meta-Operating System
+: 기존의 전통적인 운영체제를 이용하고 있다.
+: 분산 컴퓨터 자원을 활용하고, OS처리 등을 실행하는 시스템
+: 프레임워크를 기반으로 로봇 응용SW를 위한 라이브러리 제공
+
+ROBOT <-> 메타 운영체제 <-> SENSOR  // 로봇, 센서 회사
+          ->  APP  <-            // 개발자, 유저
+
+APP   -> 패키지, .deb, Wiki페이지, 공식 패키지 제공
+ROS   -> 애플리케이션, 라이브러리, 파일시스템, 지능모듈 등등
+ROBOT -> 90종류 이상의 로봇, 80종류 이상의 센서 지원
+SENSOR
+
+ROS 용어 정리
+1. Node
+- 최소 단위의 실행 가능한 프로세스
+- 각 노드는 메시지 통신으로 데이터를 주고 받는다.
+- 최소한의 실행단위로 프로그램을 나누어 작업한다.
+2. Package
+- 노드 실행을 위한 정보 등을 묶어 놓은 것.
+- 패키지의 묶음을 메타패키지라 하고 따로 분리한다.
+3. Message
+- 노드간의 데이터를 주고 받는 것.
+- 메시지는 integer, floating, point, boolean
+- 메시지들의 배열과 같은 구조도 사용할 수 있다.
+
+- Service, Service, server, Service client
+  - 서비스 요청, 서비스 응답
+- Action, Action server, Action client
+  - 액션 목표 전달 = 액션 피드백 전달 = 액션 결과 전달
+
+
+노드 간의 메시지 통신[ROS 애서 가장 기본이 되는 기술적 포인트]
+1. 마스터 구동 -> roscore
+2. 서브스크라이버 노드 구동 -> rosrun
+3. 퍼블리셔 노드 구동
+4. 퍼블리셔 정보 알림
+5. 퍼블리셔 노드에 접속 요청 -> TCPROS 접속을 요청
+6. 서브스크라이버 노드에 접속 응답 -> TCPROS 접속 응답
+7. TCP 접속 -> TCPROS 접속
+8. 메시지 전송 -> 노드가 서브크라이버 노드에게 메시지 전송
+9. 서비스 요청 및 응답
+// 매시지전송(토픽) 
+-> 지속적으로 메시지 전송(연속성) -> 단 접속이 끝나면 전송 취소
+
+정리(turtlesim 패키지)
+roscore 
+rosrun turtkesim turtlesim_node
+rostun turtlesim turtle_teleop_key
+rosrun rqt_graph rqt_graph
+
+ROS메시지
+-> 데이터를 주고 받을 때 사용하는 데이터 형태
+1. 토픽, 서비스, 액션
+2. 단순 자료형
+3. 메시지 안에 메시지를 품고 있는 데이터 구조도
+4. 메시지들이 나열된 배열과 같은 구조도
+
+네임(Names)
+-> 노드, 메시지 가지는 고유의 식별자
+-> global, private
+-> 그래프라는 추상 데이터 형태(abstract data type)를 지원
