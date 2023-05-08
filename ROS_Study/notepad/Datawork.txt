@@ -1,4 +1,5 @@
 https://medium.com/@createwithabd/ros-noetic-installation-guide-on-ubuntu-20-04-388568d24bcf
+https://blog.naver.com/cube8555/223080812665
 
 ROS 메시지 통신의 종류
 1. 토픽(Topic)    : 비동기 : 단방향 
