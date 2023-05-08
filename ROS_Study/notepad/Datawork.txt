@@ -1,0 +1,29 @@
+https://medium.com/@createwithabd/ros-noetic-installation-guide-on-ubuntu-20-04-388568d24bcf
+
+ROS 메시지 통신의 종류
+1. 토픽(Topic)    : 비동기 : 단방향 
+    -> 연속적인 데이터 송수신하는 경우
+    -> 지속적으로 발생하는 센서 데이터에 적합
+    -> 1:n, 1:1, n:1, n:n
+2. 서비스(Service) : 동기  : 양방향
+    -> 요청 처리가 순간적인 현재 상태의 요청
+    -> 요청과 응답이 끊기면 노드 접속 끊김
+3. 액션(Action)   : 비동기 : 양방향
+    -> 응답가지 오래 걸리거나 피드백이 필요한 경우
+
+[Node] MAP_SERVER
+-> Node를 통해 맵 파일을 읽는다.
+-> 다른 노드에서 제공 저장된 데이터를 전달하는 역할
+
+ROS의 msg 및 srv 생성 및 빌드
+- rosmsg, rossrv, roscp, rosmake 명령어 사용법 익히기
+
+msg
+: ROS의 메세지 파일
+: 해당 패키지의  msg 호더에 저장되어 있다.
+: field 및 field name 으로 구성되어 있다.
+
+srv
+: ROS의 서비스 파일
+: 요청 및 회신의 2 종류로 구분 가능
+: 상단부가 요청 하당부가 회신으로 구분한다
