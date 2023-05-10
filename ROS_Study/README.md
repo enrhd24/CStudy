@@ -68,5 +68,23 @@
    3. ros service list
    4. ros acton list
 - sudo apt install -nros-foxy-rqt*
-   - rqt
+   - rqt 
+   - ros2 run turtlesim turtle_teleop_key --ros-ags --remap turtle1/cmd_vel:=turtle3/cmd_vel
 3. sudo apt update
+4. Topic을 이해하기
+- rqt_graph
+- 1:1, 1:N - 비동기 - 단방향
+- ros2 topic list -t [토픽에 대한 데이터 타임]
+- ros2 topic [echo,interface,hz and [pub]] cmd_vel
+5. Service 이해하기
+- 1:1[Request, Response] -동기 -양방향
+- ros2 service list -t
+- ros2 service [type,find,show,call] [/...]
+6. Parameter 이해하기
+- ros2 param list -t
+- 노드를 구성하는 매개변수
+- ros2 param [get,set,dump,load] <node_name><parameter_name><vector>
+   - dump -> 하나의 파일을 만들어주세요 라는 의미
+   - get -> 해당 노드이름에 따른 파라미터의 정의를 알려주세요
+   - set -> 해당 노드이름에 따른 파라미터의 값을 바꾸어주세요
+   - load -> 
