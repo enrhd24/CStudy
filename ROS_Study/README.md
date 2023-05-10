@@ -57,3 +57,16 @@
 - [자료1](https://robetchoi.gitbook.io/ros/1)
 - [자료2](https://github.com/robotpilot/ros-seminar)
 
+
+### 05.10.2023
+1. ROS 환경 구성
+2. turtlesim, ROS2, rqt
+- ros2 run turtlesim turtlesim_node
+- ros2 run turtlesim turtle_teleop_key
+   1. ros2 node list
+   2. ros topic list
+   3. ros service list
+   4. ros acton list
+- sudo apt install -nros-foxy-rqt*
+   - rqt
+3. sudo apt update
