@@ -1,7 +1,6 @@
 #### [ROS_Study](https://neosla.tistory.com/m/39)
 
 #### 05.04.2023
-![05.04.2023](ROS%EC%A0%81%EC%9A%A9%20%EC%8B%9C%EC%8A%A4%ED%85%9C.png)
 1. Install Ubuntu 20.04
 2. Install ROS_Noetic Ninjemys
 3. After cloning -> cd folder -> git remote set-url origin 레퍼지토리주소
@@ -30,4 +29,22 @@
 3. Topic을 이해하기
 4. Service 이해하기
 5. Parameter 이해하기
+6. creating a package
+
+#### 05.11.2023
+1. .bashrc
+- echo .bashrc 및 복구
+
+2. alias
+- Domain Settings
+
+3. ROS 기초 명령
+   1. ROS Node
+   2. ROS Service
+   
+   
+   
+   
+   
+
 
