@@ -45,10 +45,11 @@
    4. ROS Action
 4. 빌드시스쳄 및 빌드 툴
 5. gazebo install 및 환경설정
-   
-   
-   
-   
-   
 
+#### 05.12.2023
+1. Using colcon to build packages
+2. creating a workspace
+3. Createing a package
+4. Writing a simple publisher and subscirber
+5. Writing a aimple service and client
 
