@@ -52,4 +52,5 @@
 3. Createing a package
 4. Writing a simple publisher and subscirber
 5. Writing a aimple service and client
+6. Creating custom msg and srv files
 
