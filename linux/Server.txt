@@ -1,0 +1,19 @@
+NTP Server
+: Network Time Protocol
+: 네트워크 시각 프로토콜 서버
+: OS에서 정확한 시간을 유지하는 것이 중요한 이유
+  왜냐하면 로그분석을 통해 인과 관계파악어려움 및 신뢰성이 떨어짐
+sudo aptitude -y install ntp
+vi /etc/ntp.conf을 통해 NTP 서버의 설정이 가능
+
+SSH Server
+Storage Server - NFS Server
+DNS Server
+NIS Server
+Web Server - apache, PHP
+Database - MariaDB
+FTP Server
+SAMBA Server
+Mail ServerPerl
+Python
+Ruby

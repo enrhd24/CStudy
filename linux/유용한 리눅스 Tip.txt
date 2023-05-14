@@ -1,0 +1,9 @@
+리눅스 버전체크 : uname -a
+우분투 버전체크 : cat /etc/issue
+하드용량체크 : df -h
+메모리 체크 : free -m
+CPU Core 수 : cat /proc/cpuinfo
+시스쳄 시간설정 : sudo dpkg-reconfigure tzdata
+현재 설치된 패키지 최신버전으로 업그레이드
+: apt-get update
+: apt-get upgrade

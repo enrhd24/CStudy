@@ -1,0 +1,6 @@
+VNC(virtual Network Computing)
+: 원격 지원 프로그램
+: 사용자가 윈도우 사용자의 원격을 하고 싶을 때 이용함
+
+sudo apt-get install -y x11vnc
+x11vnc -storepasswd
