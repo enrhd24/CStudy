@@ -1,0 +1,93 @@
+04. 우분투 사용을 위한 기본 설정 및 기본 명령어
+
+ROOT 권한 획득
+1. sudo apsswd root 
+: 현재 사용자의 비밀번호입력뒤 root에 하고싶은 비밀번호를 설정할 수 있음
+2. su - root
+: root 비밀번호를 치면 루트권한으로 들어갈 수 있음. 
+
+사용자 추가 방법
+(1)계정생성 : 사용자 계정을 새롭게 생성합니다.
+sudo adduser [계정명]
+(2)계정검색 : 생성된 계정에 대한 정보를 검색하고, 수정합니다.
+cat /etc/paddws | grep [계정명]
+cat /etc/shadow | grep [계정명]
+(3)계정수정 : 계정명을 받아 옵션에 적용된 값의 지정, 계정정보를 변경
+usermod[옵션][계정명]
+옵션 : -c, d, e, f, u, s, g
+계정 비밀번호 변경 -> passwd [계정명]
+(4)계정삭제 : 생성했던 사용자 계정을 삭제
+userdel[옵션][계정명]
+옵션 : -f, h, r
+adduser 명령어 ?????
+
+ubuntu error 370
+1. wsl -l
+2. wsl.exe --unregister [해당OS]
+
+네트워크 설정
+1. vi /etc/network/interfaces 
+: 네트워크 설정을 확인 할 수 있음.
+: 만일 고정아이피 정보들을 설정했다면, 조금 더 복잡한 화면을 볼수 있음
+2. sourece /etc/network/interfaces.d/*
+: 실재 내부 네트워크를 설정하는 정보들
+3. sudo ifdown --exclude=lo -a && ifup -exclude-lo -a
+: 네트워크를 restart하는 방법 
+4. ip addr : 네트워크 정보를 확인할 수 있음
+
+네트워크 관련 명령
+1. host : 호스트의 IP주소를 체크하는 명령
+2. hostname : 시스쳄의 호스트명을 알 수 있음
+3. ifconfig : 네트워크의 인터페이스 상태를 볼 수 있음.
+4. netstat : local의 모든 네트워크 연결 상태를 파악할 수 있느 명령어
+5. nslookup : 컴퓨터와 연결된 DNS 서버이며, 
+                      다른 사용자가 어떤 사이트를 이용하는지 알수 있음.
+6. ping : 네트워크의 연결이 정상적으로 이루어졌는지를 확인하는 명령어
+               원격 컴퓨터에서 TCP/IP프로토콜로 접속 가능한지 알아볼 수 있음.
+7. route : 라우팅 기능을 제어하는 명령어
+                 자신의 라우터를 직접 세팅하는 경우에 사용된다.
+8. tcpdump : 네트워크 디버깅 툴로 호스트간에 전송되는 모든 패킷을 추적가능
+9. traceroute : 목적지 호스트까지의 router경로를 표시하여 절대경로를 써야함. 
+10. finger : 사용자의 자세한 내용을 파악가능 및 특정 호스트의 정보도 알 수 있음
+                    시스템 관리자들은 자신의 도메인 밖에서 접속되는 것을 막는다.
+11. mail : 전자우편을 읽고 보낼 수 있는 기능을 가지고 있습니다.
+12. rlogin : 원격으로 로그인할 때에 사용 , 보안상 문제가 많은 명령어
+13. telnet : 원격으로 서버에 접속하여 터미널로 사용하게 하느 명령
+                     Port번호를 정하면 TCP/IP 서비스에 대한 동적여부를 파악가능
+14. ztelnet : 
+15. wall : 컴퓨터에 접속하여 있는 사용자들에게 통시에 텍스트 메시지를 보내는 명령어
+16. lynx : 텍스트 전용 www 브라우저 -> www홈페이지 내용을 검색할 수 있는다.
+
+기본 서비스 설정
+기본 서비스 설정
+systemctl -t service
+systemctl list-unit-files -t service
+systemctl wtop apparmor
+systemctl disable apparmor
+
+시스템 업데이트
+sudo apt-get update
+sudo apt0get upfrade
+sudo apt0get isntall packagname
+sudo aaptitude update
+sudo apt-get install vim
+
+피키지 설치
+sudo dpkg -i * deb.
+login : 사용자 인증과정
+passwd : 패스워드 변경
+su : 하드사용량 체크(chkdsk)
+ls : 파일 리스트 보기(dir)
+cd : 디렉토리를 변경
+cp : 화일 복사(copy)
+mv : 파일이름(rename)/ 위치(move)변경
+rm : 파일삭제
+mkdir : 디렉토리 생성
+rmdir : 디렉토리 삭제
+pwd : 현재의 디렉토리 경로를 보여주기
+pico : 리눅스용 에디터
+cat : 파일의 내용을 화면에 출력하거나 파일을 만드는 명령 more
+who : 현재 시스템에 login 하고 있는 사용자의 리스트를 보여준다.
+whereis : 소스, 실행파일, 매뉴얼 들의 위치를 알려준다.
+vi,touch,cat : 새로운 파일을 만드는 방법
+cat,head,tail : 파일 내용만 보여주기
