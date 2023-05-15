@@ -1,6 +1,9 @@
-VNC(virtual Network Computing)
-: 원격 지원 프로그램
-: 사용자가 윈도우 사용자의 원격을 하고 싶을 때 이용함
+Configure VNC
 
+VNC(virtual Network Computing)이란?
+: 원격 지원 프로그램
+: 리눅스 사용자가 원도우 로 원격사용 및 그 역으로도 사용가능
 sudo apt-get install -y x11vnc
 x11vnc -storepasswd
+sudo cp ~/.vnc/passwd /etc/x11vnc.pass
+sudo vi /etc/init/x11vnc.conf
