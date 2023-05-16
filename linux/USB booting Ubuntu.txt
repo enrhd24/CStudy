@@ -1,10 +1,22 @@
 
+
+# 장치 목록 표시
 lsblk
 
-1. 디스크 언마운트
-sudo umount <티스크파일>
-2. DD명령어로 부팅하기
-sudo dd bs=1024KB if=리눅스설치이미지.iso of=USB메모리경로 status=progress if lag=sync
-ex> sudo dd bs=1024KB if=CentOS_8.iso if=/dev/sdb status=progress oflag=sync
-3. 디스크 나열[USB드라이브를 나열하고 식별하는 것]
+# 다스크 나열[USB드라이브를 나열하고 식별하는 것]
 sudo parted -l
+sudo fdisk -l
+
+# 디스크 빈 공간 확인
+df
+
+# /dev/sdc 마운드 해제
+sudo umount /dev/sdc
+
+# ubuntu.iso 파일을 /dev/sdc 장치로 보냄
+sudo dd bs=1024KB idd if=<input file> of=<output file> status=progress if lag=sync
+dd if = 구ssd of=신ssd
+ex> sudo dd bs=1024KB if=CentOS_8.iso if=/dev/sdb status=progress oflag=sync
+
+
+
