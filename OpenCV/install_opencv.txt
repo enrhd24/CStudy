@@ -1,0 +1,10 @@
+sudo apt-get install terminator
+
+sudo apt update
+sudo apt upgrade
+
+sudo apt install libopencv-dev python3-opencv
+sudo apt install make
+
+pkg-config --modversion opencv4
+python3 -c "import cv2; print(cv2.__version__)"
