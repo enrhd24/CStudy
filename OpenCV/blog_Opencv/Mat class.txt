@@ -1,0 +1,27 @@
+Mat 클래스[https://3001ssw.tistory.com/173]
+
+1. 개념, 생성&초기화
+- OpenCV에서 많이 사용되는 클래스(Mat)
+- 이미지를 행렬(Martrix)의 형태로 표현함.
+- 2차원 행렬뿐만 아닌 고차원행렬과 여러가지 자료형으로 표현 가능
+// OpenCV에서는 Mat클래스를 사용하여 이미지를 형렬의 형태로 저장
+
+Mat::rows -> 행렬의 행 갯수
+Mat::cols -> 행렬의 열 갯수
+Mat::size -> 행렬의 크기
+Mat::dims -> 행렬의 차원
+Mat::data -> 행렬의 원소의 메모리 공간 가리키는 포인터
+
+#define CV_8U  0 //uchar
+#define CV_8S 1  //schar
+#define CV_16U 2 //ushort
+#define CV_16S 3 //signed short
+#define CV_32S 4 //int
+#define CV_32F 5 //float
+#define CV_64F 6 //double
+#define CV_16F 7 //float16_t
+
+Mat(int rows, int cols, int type);
+Mat img(600,400, CV_8UC1);
+
+2. 초기화, 복사(얕은 복사, 깊은 복사), ROI
