@@ -1,2 +1,0 @@
-sudo apt install [./vs파일]
-sudo apt-get install git

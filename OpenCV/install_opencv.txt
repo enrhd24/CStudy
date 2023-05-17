@@ -9,6 +9,12 @@ sudo apt install make
 pkg-config --modversion opencv4
 python3 -c "import cv2; print(cv2.__version__)"
 ---
-auto apt-get install python3
+sudo apt-get install python3
+sudo apt install python3-pip
 pip install opencv-python
 단, 해당 디렉토리 파일로 들어가서 해야함.
+
+--------------------------------------------
+
+sudo apt install [./vs파일]
+sudo apt-get install git
