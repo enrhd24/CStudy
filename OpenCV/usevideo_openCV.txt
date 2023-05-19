@@ -1,0 +1,24 @@
+sudo su
+exit
+
+cd /dev
+웹캡 연결 후
+ls video*
+clear
+ll video*
+ls -l video0
+sudo chmod +rw video0
+sudo chmod +rw /dev/video0
+
+1. video_cam.py     - 연결 확인
+2. video_cam_fps.py - 작성 완료
+
+frame size : 1080 * 1920
+-> 이미지 데이터를 다룰 것이기 때문이다.
+
+햏렬 연산
+-> 디멘션과 사이즈가 맞아야 합니다.
+
+이미지를 다루기 위해 알아하는 기준
+1. 내가 힉득할 수 있는 이미지 사이즈
+2. 웹캡에서 제공되는 이미지 사이즈
