@@ -2,6 +2,8 @@ import cv2
 
 cap = cv2.VideoCapture(0)
 
+def degree(pos):
+
 if cap.isOpened():
     w = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
     h = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
