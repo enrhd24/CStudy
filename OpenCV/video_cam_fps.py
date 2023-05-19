@@ -21,6 +21,9 @@ else:
     height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
     print(f"frame size: {width} * {height}, fps: {fps}")
 
+    # int형으로 형변환하지 않으면, 실수가 된다.
+    dt = int(1000 // fps)
+
     while True:
         ret, frame = cap.read()           
         if ret:
@@ -28,7 +31,7 @@ else:
             cv2.imshow('frame_resize', frame_resize)   
             cv2.imshow('frame', frame)   
 
-            if cv2.waitKey(1) != -1:    
+            if cv2.waitKey(dt) != -1:    
                 break                   
         else:
             print('no frame')

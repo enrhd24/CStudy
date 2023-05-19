@@ -34,8 +34,8 @@ rate hz
 1. fps = 20 
 -> 프레임당 몇 초? 1/20 = 0.05초
 
-delta t dt 
-: dt(delta t) = 1/fps
+delta t dt : dt(delta t) = 1/fps
+1초는 1000ms
 
 
 
