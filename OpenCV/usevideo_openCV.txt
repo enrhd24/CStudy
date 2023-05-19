@@ -22,3 +22,20 @@ frame size : 1080 * 1920
 이미지를 다루기 위해 알아하는 기준
 1. 내가 힉득할 수 있는 이미지 사이즈
 2. 웹캡에서 제공되는 이미지 사이즈
+
+---
+# 웹캡의 스펙과 성능을 알려주는 것
+sudo apt install uvcdynctrl
+uvcdynctrl -f
+
+# fps
+frame per second 초당 프레임 수
+rate hz
+1. fps = 20 
+-> 프레임당 몇 초? 1/20 = 0.05초
+
+delta t dt 
+: dt(delta t) = 1/fps
+
+
+

@@ -13,8 +13,10 @@ else:
     height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
     print(f"frame size: {width} * {height}, fps: {fps}")
 
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+    # 이미지의 픽셀을 정하는 메서드(변수)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+    
     width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
     height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
     print(f"frame size: {width} * {height}, fps: {fps}")
@@ -22,7 +24,10 @@ else:
     while True:
         ret, frame = cap.read()           
         if ret:
-            cv2.imshow('camera', frame)   
+            frame_resize = cv2.resize(frame, (480,280))
+            cv2.imshow('frame_resize', frame_resize)   
+            cv2.imshow('frame', frame)   
+
             if cv2.waitKey(1) != -1:    
                 break                   
         else:
