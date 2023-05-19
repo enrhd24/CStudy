@@ -15,7 +15,8 @@ if cap.isOpened():
         if not ret:
             break
         
-        frame_rotate = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+        m_rotate = cv2.getRotationMatrix2D(center,45,1)
+        frame_rotate = cv2.warpAffine(frame, m_rotate, (int(w),int(h)))
         cv2.imshow("frame", frame)
         cv2.imshow("frame_rotate", frame_rotate)
 
