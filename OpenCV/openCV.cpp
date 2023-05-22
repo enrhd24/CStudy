@@ -5,13 +5,21 @@ using namespace std;
 
 int main(int ac, char** av) {
 
-	Mat color_img = imread("rain.png");
-	Mat grayscale_img;
+	Mat img = imread("rain.png",0); //gray scale
+	Mat color_img = imread("rain.png",1); // color scale
 
-	cvtColor(color_img, grayscale_img, COLOR_BGR2GRAY);
+	// 이미지 밝기 조절 [덧셈, 뺄셈]
+	Mat img_2 = img + 100;
+	Mat img_3 = img - 100;
+	Mat img_4 = img * 100;
+	Mat img_5 = img / 100;
 
-	imshow("color_img", color_img);
-	imshow("grayscale_img", grayscale_img);
+	imshow("img", img);
+	imshow("img_2", img_2);
+	imshow("img_3", img_3);
+	imshow("img_4", img_4);
+	imshow("img_5", img_5);
+	
 	waitKey(0);
 
 	return 0;
