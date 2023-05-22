@@ -1,17 +1,18 @@
-#include <iostream>
-#include "opencv2/opencv.hpp"
+#include <opencv2/opencv.hpp>
 
+using namespace cv;
 using namespace std;
-us namespace cv;
 
-int main(){
+int main(int ac, char** av) {
 
-    Mat src = imread("opencv.png", IMREAD_COLOR);
-    if(false == src.empty()){
-        imshow("opencv",src);
-        waitKey();
+	Mat color_img = imread("rain.png");
+	Mat grayscale_img;
 
-        destroyAllWindows();
-    }
-    return 0;
+	cvtColor(color_img, grayscale_img, COLOR_BGR2GRAY);
+
+	imshow("color_img", color_img);
+	imshow("grayscale_img", grayscale_img);
+	waitKey(0);
+
+	return 0;
 }
