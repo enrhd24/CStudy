@@ -7,18 +7,13 @@ int main(int ac, char** av) {
 
 	Mat img = imread("rain.png",0); //gray scale
 	Mat color_img = imread("rain.png",1); // color scale
+	Mat hist_img;
 
-	// 이미지 밝기 조절 [덧셈, 뺄셈]
-	Mat img_2 = img + 100;
-	Mat img_3 = img - 100;
-	Mat img_4 = img * 100;
-	Mat img_5 = img / 100;
+	// Histogram을 이용한 이미지 밝기 조절
+	equalizeHist(img, hist_img);
 
 	imshow("img", img);
-	imshow("img_2", img_2);
-	imshow("img_3", img_3);
-	imshow("img_4", img_4);
-	imshow("img_5", img_5);
+	imshow("color_img", hist_img);
 	
 	waitKey(0);
 
