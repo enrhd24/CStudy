@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('img/pig.jpg', cv2.IMREAD_GRAYSCALE)
+img = cv2.imread('img/red.jpg', cv2.IMREAD_GRAYSCALE)
 resize_img = cv2.resize(img, dsize=(300,300), interpolation=cv2.INTER_LINEAR)
 
 ret, th1 = cv2.threshold(img,0,255,cv2.THRESH_OTSU)
