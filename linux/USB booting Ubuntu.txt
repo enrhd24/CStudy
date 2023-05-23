@@ -1,4 +1,10 @@
-
+===========================================
+sudo su
+df -h
+sudo umount /dev/sdc6
+sudo dd if=/dev/sdc6 of=a.ing.xz status=progress
+sudo sync
+===========================================
 
 # 장치 목록 표시
 lsblk
@@ -58,3 +64,4 @@ sydo apt-get updated && apr-get install gparted
 
 # 부트 로더 설치 장치
 : 직접 설정한다면, 특정 파티션이 아닌 디스크 전체를 선택해야 함
+
