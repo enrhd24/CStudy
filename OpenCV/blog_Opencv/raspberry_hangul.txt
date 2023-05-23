@@ -1,5 +1,20 @@
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt0get install ibus ibus-hangul
+sudo apt-get install ibus ibus-hangul
 sudo apt-get install fonts-unfonts-core
+
+opencv install
+sudo apt-get -y update && sudo apt-get -y upgrade
+
+-- 일반적인 데스크톱 환경--
+pip install opencv-python
+pip install opencv-contrib-python
+
+-- 서버 환경 --
+pip install opencv-python-headless
+pip install opencv-contrib-python-headless
+
+pip install --upgrade pip
+pkg-config --modversion opencv
+
