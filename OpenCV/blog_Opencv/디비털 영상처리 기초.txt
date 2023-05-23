@@ -78,3 +78,58 @@ Image Processing [이미지 프로세싱]
 3. 이미지 변환[image transforms] ex> 수학적 변환수식으로 또 다른으로 변환으로 바꾸는 것
     - image -- FFT[임벌스FFT]  , FFT -- image[역FFT]
 4. 이미지 압축[image compression] ex>영상이 가지고 있는 불필요한 영역을 삭제하여 용량을 줄이는 것
+
+-------------------------------------------------------------------------------------------
+
+02. 디지털 이미지[Digital Images]
+
+```
+영상 신호의 디지털화 과정
+: Sampling -> Quantization -> Coding
+디지털 영상(bitmap)의 표현방법
+: bitmap -> I(x,y)
+디지털 영상(bitmap)의 종류
+: binary, gray-scale, color, multi-soectral images
+```
+
+영상 신호의 디지털화 과정
+1. Sampling 샘플링 --> 해상도와 관련이 있음.
+  : 아날로그 데이터를 일정한 간격으로 데이터를 취하는 과정
+  : 시간적인 축으로 일정한 간격으로 데이터를 취하는 과정
+  : Spatial samples[공간적인 샘플]_공간을 일정한 간격으로 데이터를 취하는 과정
+  // pixel, picture element, pel , dpi[도트]
+2. Quantizing 양자화
+  : 각각이 픽셀이 가지고 있는 밝기의 단계를 나누는 것
+  : Levels[단계들의 차이] 10 vs 20 vs 40 Levels
+3. Coding 코딩
+  : 각각의 픽셀로 나타내는 부분을 이진화하여 파일에 저장하는 것
+  : 각각의 픽셀을 부호화시켜서 파일에 담겨지게된다.
+  : 하지만, 파일의 용량을 줄이기 위해 바이너리 파일을 압축한다.
+
+
+디지털 영상의 표현 방법
+1. 영상 좌표(x,y) - 데카르트 좌표계
+2. 행렬 위치(r,c) - row, colums
+
+I(x,y) [행렬을 하나의 함수로 표현]
+x,y : spatial corrdinates
+I : intensity(gray level) -> 픽셀이 가지고 있는 밝기 값
+
+
+디지털 영상의 종류
+1. binary image
+  : 1 bit / pixel [0 or 1]
+  : 중간 결과 영상 연산할 때 사용하는 것
+2. grayscale Image
+  : typically 8 bit / pixel [0 ~ 255]
+3. color image
+  : typically 24 bit - pixel
+  : R[0~255] + G[0~255] + B[0~255] = 24bit
+  LookUp Table(LUT)
+  -> 추가적인 데이터인 행의 위치를 나타내는 (RGB)
+4. multi-soectral image
+   : 눈으로 볼 수 없는 부분을 중첩을 통해 사진으로 시각화하는 작업
+   ex> [일기예보] 가시광선, 적외선, 파장의 종류 등등...
+
+
+
