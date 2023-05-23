@@ -1,0 +1,80 @@
+OpenCV 라이브러리를 활용한 디지털 영상처리 기초
+- 멀티미디어 공학 [과목]
+- 영상처리 및 패턴인식 [과목]
+
+선수지식
+- C 프로그래밍
+- C++ 객체지향 프로그래밍
+
+01. 디지털 영상처리 개요
+
+```
+- Computer Imaging 소개
+ : 컴퓨터에 의해서 시각적인 정보를 획득하고 처리하는 분야
+  : 컴퓨터비전, 이미지 프로세싱 -> imsge analysis
+- Pattern Recognition 개요 [패턴인식]
+ : 입력 오브젝트를 주어진 알고리즘에 따라 카테고리나 클래스로
+     분류하는 과정
+  : 이미지 개선 - 이미지 분할 - 특징추출 - 패턴분할 
+- Image Processing 개요 [이미지 프로세싱]
+ : 인간이 사용하기 평하도록 컴퓨터를 사용하여 기존 영상을 개선 및 수정하는 분야
+  : 이미지개선, 이미지 분류, 이미지 변환, 이미지 압축
+```
+
+Computer Imaging
+: 컴퓨터에 의해서 시각적인 정보[동영상] 획득하고 처리하는 분야
+
+응용 분야
+1. 컴퓨터 분야         by Computer
+2. 이미지 프로세싱   by Human
+3. Image Analysis [컴퓨터 분야 ^ 이미지 프로세싱]
+-> 컴퓨터 분야와 이미지 프로세싱의 이미지를 공유하는 분야
+
+
+Related Fields to Image Computing
+1. Computer Grphics
+description[알고리즘] --Computer Grahics-> image[결과물]
+
+*Computer Grahics
+: description으로 부터 이미지를 생성을 해내는 분야
+*descripting
+: 선 또는 도형 그리고 도형을 채우는 "알고리즘"
+
+2. Image processing
+Image -- Image Processing -> Image
+
+입력과 출력의 이미지
+입력 이미지 : 낮은 퀄리티, 목적에 맞지 않는 이미지 및 입력 영상
+[Image Processing] 
+출력 이미지 : 높은 쿼리티, 목적에 맞는        이미지 및 입력 영상
+
+
+3. Computer Vision
+Image -- Computer Vision -> description
+
+입력은 영상으로 사용하여
+결과는 description[단어, 문장, 이미지를 선정(사람이 볼 수 있는)]
+
+
+
+Pattern Recognition[패턴 인식]
+입력 오브젝트를 주어진 알고리즘에 따라 카테고리나 클래스로 분류하는 과정
+1. 무슨 과일인가?  ,  2. 무슨 글자인가?  ,  3. 정상인가?
+
+pattern recognition절차
+1. image enhancement         [이미지 개선]
+2. image segmentation         [영상 분할]
+3. feature extraction     [특징 추출]_특징
+4. pattern classification [패턴 분류]_바나나
+
+x축 y축에 해당하는 color축과 thinness ratio 축
+
+
+Image Processing [이미지 프로세싱]
+인간이 사용하기 편하도록 컴퓨터를 사용하여 기존 영상을 개선하거나 수정하는 학문 분야
+
+1. 이미지 개선[image enhancement] ex> 선명도, 화질개선
+2. 이미지 분할[image segmentation] ex> 영역, 오브젝트 단위로 구분
+3. 이미지 변환[image transforms] ex> 수학적 변환수식으로 또 다른으로 변환으로 바꾸는 것
+    - image -- FFT[임벌스FFT]  , FFT -- image[역FFT]
+4. 이미지 압축[image compression] ex>영상이 가지고 있는 불필요한 영역을 삭제하여 용량을 줄이는 것
