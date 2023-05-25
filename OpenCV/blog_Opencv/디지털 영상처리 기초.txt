@@ -131,5 +131,91 @@ I : intensity(gray level) -> 픽셀이 가지고 있는 밝기 값
    : 눈으로 볼 수 없는 부분을 중첩을 통해 사진으로 시각화하는 작업
    ex> [일기예보] 가시광선, 적외선, 파장의 종류 등등...
 
+-------------------------------------------------------------------------------------------
+
+03. BMP 파일 이해
+
+```
+BMP 파일의 구조
+1. Header of BMP -> File Header,Bitmap Info. Header, LUT
+2. Image Data
+BMP 파일의 특징
+1. 한 행의 데이터는 4바이트의 배수
+2. 상하반전된 데이터
+// (x,y) => [widthStep * (height -y -1) + x]
+```
+
+BMP 파일의 구조
+- Headers of BMP
+1. File Header [구조체 : bitmapfileheader]
+2. Bitmap Info. Header [RGB : bitmapinforheader]
+3. LUT [이미피 파일에 따라 필요할 수도 필요 없을 수도 있음]
+
+1-1. typedef struct tag{
+  WORD bgTYPE;
+  DWORD bfSize;
+} bitmapfileheader;
+
+1-2. typedef struct tag{
+  LONG biPlanes;
+  DWORD biCLrUSed;
+  WORK biBitCount;
+} BITAPINFOTHADER;
+
+1-3. typedef struct tag{
+  BYTE rgbBlue;
+  BYTE rgbGreed
+} RGVColor;
+
+
+- Image Data
+
+ex> true color image [색상 이미지] 
+1. File Header
+   파일해더의 식별자는 첫번째 16진수 숫자
+   이 파일이 BMP파일일지 알수 있는 열쇠인 것.
+2. Bitmap Info. Header
+2. LookUpTable
+
+ec> gray-scale image
+1. File Header
+2. Bitmap Info. Header
+3. LookUpTable : LUT을 사용하지 않는다.
+
+// 상하반전된 상태로 이미지가 저장되었기 때문에 
+   픽셀의 위치에 나타내는 형태가 다릅니다.
+
+
+BMP 파일의 특징
+
+2차원 배열 : Data 
+: A => data[width][height]
+
+1차원 배열 : data
+: a => data[length]
+: lenght => 1 * widh + height
+// (x,y) => [width * y + x]
+
+ex> 150 * 50 8bit gray-scale image 
+    : (x, y) = (2, 1) ? 152
+    = width * 1 + 2 == width -> 150
+  * 각 행의 데이터틑 4byte의 배수로 저장함.
+  따라서 [154] = [(152) * 1 + 2]가 되어야 한다.
+// 즉, width => widthStep = ((width +3)/4)*4
+   그리고, 올림연산이 되어야 한다.
+
+정리 : (x,y) => [widthStep * y + x]
+
+
+Vertical Flip
+: 이미지 데이터가 첫번째 행부터 들어가 있는 것이 아닌,
+  상하반전이 되어 저장되어져 있고, 
+  가장 먼저 만나는 행은 가장 마지막 행이다.
+: 가장 마지막 행은 "height -1"
+: 가장 첫번째 행은 "0"
+// (x,y) => [widthStep * (height-y-1) + x]
+   -> 상화반전된 값까지 생각을 해줘야 함.
+   -> widthStep 역시 생각을 해줘야 함.
+
 
 
