@@ -1,0 +1,23 @@
+sudo apt-get install terminator
+---
+sudo apt update
+sudo apt upgrade
+---
+sudo apt install libopencv-dev python3-opencv
+sudo apt install make
+---
+pkg-config --modversion opencv4
+python3 -c "import cv2; print(cv2.__version__)"
+---
+sudo apt-get install python3
+sudo apt install python3-pip
+pip install opencv-python
+단, 해당 디렉토리 파일로 들어가서 해야함.
+<<<<<<< HEAD
+=======
+
+--------------------------------------------
+
+sudo apt install [./vs파일]
+sudo apt-get install git
+>>>>>>> 001924bc44f37165fd84413de1c17198dcc6009c
