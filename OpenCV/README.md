@@ -24,4 +24,6 @@
 > import cv2<br>
 > cv2.__version__<br>
 
-
+#### ubuntu ~/.bashrc setting
+1. en = 'gedit ~/.bashrc'
+2. sen = 'source ~/.bashrc'
