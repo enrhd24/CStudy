@@ -54,3 +54,7 @@
 5. Writing a aimple service and client
 6. Creating custom msg and srv files
 
+#### 05.27.2023
+1. ubuntu install Galactic
+2. ubuntu gedit ~/.bashrc
+
