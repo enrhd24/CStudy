@@ -27,3 +27,41 @@
 #### ubuntu ~/.bashrc setting
 1. en = 'gedit ~/.bashrc'
 2. sen = 'source ~/.bashrc'
+
+---
+
+#### Opencv
+
+1. 3rdparty
+- 라이브러링와 헤더가 포함되어 있다.
+- Win32, Win64버전을 빌드하는 것이 바람직
+2. apps
+- app(Application)
+- 이것은 볼 필요는 없습니다.
+3. cmake
+- 빌드 시스템
+4. data
+- 라이브러리 or 응용 프로그램
+- 다양한 데이터가 포함되어 있습니다.
+5. doc - 문서 형식인거 가타여
+6. include - header파일을 모아 두는 것
+7. modules - 각각의 모델의 코드를 모아 두는 것
+8. platforms - 교차 컴파일에 필요한 도구 체인 및 추가 파일이 포함
+9. samples - 샘플코드가 있는 것
+10. perf - 퍼포먼스 테스트
+
+### modules - core
+- core / doc / intro.markdown
+
+### modules - src
+- martix.cpp [matAllocator]
+- arithm.cpp [cv::add]_addTab()
+    - 행렬의 사이즈가 같은 경우 더하기 하기
+    - hal_각 os 마다 가지고 있는 최적화가 있다
+
+- getAddTab -> array -> hal -> add8u[하드웨어]
+  - 아리스메트릭 -> 스위치 0, 1[행렬의 크기가 같아야 가능]
+  - src - dst
+
+### opencv-hal-proposal - README.md
+
