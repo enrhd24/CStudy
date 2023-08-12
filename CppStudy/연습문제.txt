@@ -22,3 +22,48 @@
 08. [1] 74 [2] 4 [3] 0 [4] 4.5 [5] 3
 09. (int)x1+(int)x2
 10. [1] int [2] float [3] char [4]char 32_t [5] double
+
+04장
+01. [1] char actors[30] [2] short betside[100] 
+    [3] float chuck[13] [4] long double dipsea[64]
+02. [1] array<char, 30> actors; [2]array<short, 100>betside
+    [3] array<float, 13> chuck  [4]array<long double, 64> dipsea
+03. int arr[5] = {0,}; int num = 1;
+    for(int i = 0; i < arr.length; i++ num+=2){arr[i] = num;}
+04. arr.sort(); arr[arr.length] + arr[arr.length -1]
+05. cout << ideas[1] << endl;
+06. char string = "cheeseburger" << endl;
+07. string str = "Waldorf Salad" << endl;
+08. struct fish{
+    string kind[];
+    int weight;
+    double length
+};
+
+09. struct str{
+    char ch;
+}  
+int main(){
+    str st
+    st.ch = "Waldorf Salad";
+    return 0;
+}
+
+10. enum Response{Yes = 1, No = 0, Maybe = 2};
+11. double *p = &ted; cout << &p << endl;
+12. float array(*treacle){
+    return cout << treacle[0] << treacle[treacle.length];
+}
+13. cin >> size; int * dyn = new int [size]; vector<int> dv(size);
+14. 문자열 상수 이므로 int형을 지시하는 포인터로 변환되어 문자열이 시작되는 주소를 출력한다.
+16. 하이트스페이스를 만나기 전까지 출력되며, 한문장만 출력이 된다.
+17. 
+#include <string>
+#include <vector>
+#include <array>
+using namespace std;
+const int Str_num = {10};
+ 
+vector<string> vstr(Str_num);
+array<string, Str_num> astr;
+
