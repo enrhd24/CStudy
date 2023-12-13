@@ -1,7 +1,7 @@
 /*
 Date : 2023.12.12
 Source : 01.c
-Auther : d안예진
+Auther : 안예진
 Email : ayj @wise-automotive.com
 */
 
