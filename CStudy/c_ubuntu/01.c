@@ -5,6 +5,9 @@ Auther : 안예진
 Email : ayj @wise-automotive.com
 */
 
+#include <stdio.h>
+#include <gst/gst.h>
+
 // 변수의 리터럴 1
 #define MAX 16
 
