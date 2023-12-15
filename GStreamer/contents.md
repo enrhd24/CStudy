@@ -1,0 +1,30 @@
+# usr/include/gstreamer-1.0
+
+- /gst
+    - allocators
+    - app
+    - audio
+    - base
+    - basecamerabinsrc
+    - check
+    - codecparsers
+    - controller
+    - fft
+    - gl
+    - insertbin
+    - interfaces
+    - isoff
+    - mpegts
+    - net
+    - opencv
+    - pbutils
+    - player
+    - riff
+    - rtp
+    - rtsp
+    - sctp
+    - sdp
+    - tag
+    - uridownloader
+    - video
+    - webrtc
